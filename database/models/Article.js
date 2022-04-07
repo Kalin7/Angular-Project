@@ -24,8 +24,12 @@ const schema = new mongoose.Schema({
 
     posts: {
         type: [mongoose.Schema.Types.ObjectId], ref: 'Post', default: []
+    },
+    
+    status: {
+        type: Boolean,
+        default: true
     }
-
 })
 
 const Article = mongoose.model('Article', schema);

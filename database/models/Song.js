@@ -30,7 +30,13 @@ const schema = new mongoose.Schema({
 
     author: {
         type: mongoose.Schema.Types.ObjectId, ref: 'User'
+    },
+
+    status: {
+        type: Boolean,
+        default: true
     }
+
 });
 
 const Song = mongoose.model('Song', schema);
