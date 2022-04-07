@@ -1,0 +1,52 @@
+const { createRecord, getSongs, getSongById, voteSongById } = require('../managers/Song');
+const { errorHandler } = require('../utils/helpers')
+
+module.exports = {
+    create: async (req, res) => {
+        try {
+            const song = await createRecord(req.body)
+            return res.status(201).json(song);
+        } catch (err) {
+            const error = errorHandler(err);
+            return res.status(400).json(error.message);
+        }
+    },
+
+    getSongsRecords: async (req, res) => {
+        console.log(req.session.user);
+        try {
+            const songs = await getSongs();
+            return res.status(200).json(songs);
+        } catch (err) {
+            const error = errorHandler(err);
+            return res.status(400).json(error.message);
+        }
+    },
+
+    getSongRecordById: async (req, res) => {
+        console.log(req.session.user);
+        try {
+            const id = req.params.id;
+            const song = await getSongById(id);
+            return res.status(200).json(song);
+        } catch (err) {
+            const error = errorHandler(err);
+            return res.status(400).json(error.message);
+        }
+    },
+
+    vote: async (req, res) => {
+        console.log(req.params)
+        try {
+            const id = req.params.id;
+            const status = req.params.status;
+            const song = await voteSongById(id, status);
+            console.log(song);
+            return res.status(200).json(song)
+        }catch (err) {
+            const error = errorHandler(err);
+            return res.status(400).json(error.message);
+        }
+    }
+
+}
