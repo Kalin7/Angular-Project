@@ -13,7 +13,7 @@ module.exports = {
     },
 
     getSongsRecords: async (req, res) => {
-        console.log(req.session.user);
+        
         try {
             const songs = await getSongs();
             return res.status(200).json(songs);
@@ -24,7 +24,7 @@ module.exports = {
     },
 
     getSongRecordById: async (req, res) => {
-        console.log(req.session.user);
+    
         try {
             const id = req.params.id;
             const song = await getSongById(id);
@@ -36,12 +36,12 @@ module.exports = {
     },
 
     vote: async (req, res) => {
-        console.log(req.params)
+        
         try {
             const id = req.params.id;
             const status = req.params.status;
             const song = await voteSongById(id, status);
-            console.log(song);
+          
             return res.status(200).json(song)
         }catch (err) {
             const error = errorHandler(err);

@@ -1,17 +1,13 @@
 const bcrypt = require('bcrypt');
 const { User } = require('../database/models/User');
+const { Article } = require('../database/models/Article');
+const { Song } = require('../database/models/Song');
+const { Post } = require('../database/models/Post');
 
-
-async function createUser(data) {
-    const newUser = new User({
-        firstName: data.firstName,
-        lastName: data.lastName,
-        email: data.email,
-        password: data.password
-    });
-    await newUser.save();
-    return newUser;
-   
+const modelMapper = {
+    'article': Article,
+    'song': Song,
+    'post': Post
 }
 
 const updateUserMapper = {
@@ -26,16 +22,34 @@ const updateUserMapper = {
     }
 }
 
+async function createUser(data) {
+    const newUser = new User({
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        password: data.password
+    });
+    await newUser.save();
+    return newUser;
+   
+}
+
+
+
 async function updateByType(dataType, userId, id) {
-    console.log(dataType)
     return await updateUserMapper[dataType](userId, id)
 }
 
 async function getUserById(id) {
     return await User.findById(id)
-                .populate('songs')
-                .populate('articles')
-                .populate('posts');
+                .populate({path: 'songs', match: {status: true}})
+                .populate({path: 'articles', match: {status: true}})
+                .populate({path: 'posts' , match: {status: true}})
+}
+
+async function deleteElementByTypeAndId(elementType, elementId) {
+    console.log(elementType, elementId);
+    return await modelMapper[elementType].findOneAndUpdate({_id: elementId}, {$set: {status: false}});
 }
 
 async function isExistUser(email, password) {
@@ -54,5 +68,6 @@ module.exports = {
     createUser,
     isExistUser,
     updateByType,
-    getUserById
+    getUserById,
+    deleteElementByTypeAndId
 };

@@ -13,16 +13,16 @@ async function createRecord(data) {
 } 
 
 async function getSongs() {
-    return await Song.find({}).populate('author');
+    return await Song.find({status: true}).populate({path:'author', match: {status: true}});
 }
 
 async function getSongById(id) {
-    return await Song.findOne({_id: id}).populate('author')
+    return await Song.findOne({_id: id, status: true}).populate({path:'author', match: {status: true}});
 }
 
-async function voteSongById(id, status) {
-    const s = await Song.findOne({_id: id});
-    status = 'like' ? s.rating++ : s.rating--;
+async function voteSongById(id, voteStatus) {
+    const s = await Song.findOne({_id: id, status: true});
+    voteStatus = 'like' ? s.rating++ : s.rating--;
     return await s.save();
 }
 

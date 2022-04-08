@@ -24,7 +24,7 @@ async function startApp() {
    
     app.use(cors({
         allowOrigin: ['*'],
-        allowedHeaders: ['Content-Type', 'Authorization']
+        'Access-Control-Allow-Headers': ['Authorization', 'X-Authorization', 'Content-Type']
     }));
     
     app.use(express.json());

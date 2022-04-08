@@ -11,11 +11,13 @@ async function createPost(data) {
 
 
 async function getPostsByArticleId(id) {
-    console.log(id);
-    return await Post.find({article: id}).populate('author');
+    return await Post.find({article: id, status: true}).populate({path: 'author', match: {status: true}});
 } 
-
+async function getPostById(id) {
+    return await Post.findOne({_id: id, status: true});
+}
 module.exports = {
     createPost,
-    getPostsByArticleId
+    getPostsByArticleId,
+    getPostById
 }

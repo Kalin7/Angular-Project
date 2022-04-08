@@ -14,6 +14,11 @@ const schema = new mongoose.Schema({
 
     article: {
         type: mongoose.Schema.Types.ObjectId, ref: 'Article'
+    },
+
+    status: {
+        type: Boolean,
+        default: true,
     }
 
 })
