@@ -15,7 +15,6 @@ const schema = new mongoose.Schema({
         type: String,
         required: true,
         minlength: [5, 'Description must be at least 5 characters'],
-        maxlength: [50, 'Description must be at most 50 characters']
     },
 
     songUrl: {
