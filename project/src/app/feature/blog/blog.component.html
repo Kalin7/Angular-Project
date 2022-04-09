@@ -1,0 +1,38 @@
+<section class="blog-section">
+    <div class="container" routerLinkActive="active">
+        <div class="create-article">
+            <a routerLink="./create-article">Create article</a>
+        </div>
+        <div *ngIf="articles?.length == 0">
+            <h3>There are no articles yet! Be first, create articles.</h3>
+        </div>
+        <article class="article" *ngFor="let article of articles">
+            <h4>Title: {{article.title}}</h4>
+            <div class="article-content">
+                <div class="article-img">
+                    <img src="{{article.imgUrl}}" alt="">
+                    <button id={{article._id}} (click)="onShow($event)">{{btn}}</button>
+                </div>
+                <div class="article-details" *ngIf="article.details">
+                    <div class="details-content">
+                        <div class="content-holder">
+                            <p class="content">{{article.content}}</p>
+                        </div>
+                        <div class="btn-holder">
+                            <div class="view-posts">
+                                <a routerLink="./posts/{{article._id}}">View posts</a>
+                            </div>
+                            <div class="create-post">
+                                <a routerLink="./article/{{article._id}}/create-post">Make a post</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+    
+    <router-outlet></router-outlet>
+    
+</section>
+

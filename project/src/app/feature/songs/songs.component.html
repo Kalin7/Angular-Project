@@ -1,0 +1,33 @@
+<section class="catalog-section" routerLinkActive="active">
+    
+    <div class="container">
+        <div class="link-holder">
+            <a routerLink="./create-record">Create Record</a>
+        </div>
+        
+        <div class="songs">
+            <div class="songs-container">
+                <div *ngIf="records?.length == 0">
+                    <h3>There are no song record yet! Be first, create recotd.</h3>
+                </div>
+            <div class="songs-container-items"  *ngFor="let record of records">
+                    <div class="song-item-title">
+                        <p>{{record.title}}</p>
+                    </div>
+                    <div class="fa-container">
+                        <button><fa-icon  [icon]="['fas', 'play-circle']"></fa-icon></button>
+                        <a routerLink="./{{record._id}}/details"><div class="fa-container-hover"></div></a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <!-- <ng-template #noRecords>
+        <div>
+            <h2>There are no records in the catalog</h2>
+            <p><a routerLink="/create">Be first, create reate a new record</a></p>
+        </div>
+    </ng-template> -->
+</section>
+<router-outlet></router-outlet>

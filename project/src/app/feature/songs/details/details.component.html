@@ -1,0 +1,43 @@
+<section>
+    <div class="song-item-details" *ngIf="recordById">
+        <div class="item-details">
+            <ul class="user-card-list">
+                <li>Author: 
+                    <span>{{recordById.author.firstName}} {{recordById.author.lastName}}</span>
+                    <button (click)="showDetails()">Show more</button>
+                </li>
+                <li>Genre: 
+                    <span>{{recordById.genre}}</span>
+                </li>
+                <li>Description: 
+                    <span>{{recordById.description}}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="player-holder">
+            <audio class="audio" controls autoplay>
+                <source src="{{recordById.songUrl}}" type="audio/mpeg"/>
+            </audio>
+        </div>
+        <div class="icon-holder">
+            <button type="button" id="like"  (click)="onVote($event)">Like: <fa-icon [icon]="['fas', 'thumbs-up']" ></fa-icon></button>
+            <button type="button" id="unlike" (click)="onVote($event)">UnLike: <fa-icon [icon]="['fas', 'thumbs-down']"></fa-icon></button>
+            <p>Raiting:  {{recordById.rating}}</p>
+        </div>
+    </div>
+    <div class="user-details" *ngIf="details && recordById">
+        <div class="user-details-items">
+            <div>
+                <img *ngIf="recordById.author.imgUrl" src="{{recordById.author.imgUrl}}" alt="">
+                <p *ngIf="recordById.author.phone" ><span>Phone number:</span> {{recordById.author.phone}}</p>
+                <p *ngIf="recordById.author.email"><span>Email:</span> {{recordById.author.email}}</p>
+            </div>
+        </div>
+        <div class="about">
+            <p *ngIf="recordById.author.about"><span>About the author: </span>{{recordById.author.about}}</p>
+        </div>
+    </div>
+    <div>
+        <button class="btn-back" (click)="onBack()">Back</button>
+    </div>
+    </section>

@@ -1,0 +1,10 @@
+<div class="form-container">
+    <div class="icon-holder">
+        <fa-icon [icon]="['fas', 'comments']"></fa-icon>
+    </div>
+    <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+        <textarea type="text" formControlName="content" placeholder="Write your post"></textarea>
+        <button type="submit" [disabled]="!postForm.valid">Submit</button>
+    </form>
+</div>
+

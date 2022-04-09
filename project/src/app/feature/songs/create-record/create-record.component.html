@@ -1,0 +1,43 @@
+<section class="create-section">
+  
+        <form [formGroup]="recordForm" (ngSubmit)="onCreate()">
+            <div>
+                <label>Song Title</label>
+                <input type="text"  placeholder="Song title" formControlName="title"/>
+                <p 
+                *ngIf="recordForm.get('title')?.invalid
+                 && 
+                 recordForm.get('title')?.touched">
+                 Field is required. Minimum length 4 characters.
+            </p>
+            </div>
+            <div>
+                <label>Genre</label>
+                <input type="text"  placeholder="Genre" formControlName="genre" />
+                <p 
+                    *ngIf="recordForm.get('genre')?.invalid
+                    && 
+                    recordForm.get('genre')?.touched">
+                    Field is required.
+                </p>
+            </div>
+            <div>
+                <label>Song Description</label>
+                <textarea type="text" placeholder="Song description" formControlName="description"></textarea>
+                <p 
+                    *ngIf="recordForm.get('description')?.invalid
+                    && 
+                    recordForm.get('description')?.touched">
+                    Field is required. Minimum length 10 characters.
+                </p>
+            </div>
+            <div>
+                <label>Source File</label> 
+                <input type="file" placeholder="Choose a file" formControlName="file" (change)="upload($event)"/>
+                <p *ngIf="!correctType">Please select an image with the following types: mpeg</p>
+            </div>
+            <button type="submit">Create Record</button>
+        </form>
+  
+</section>
+

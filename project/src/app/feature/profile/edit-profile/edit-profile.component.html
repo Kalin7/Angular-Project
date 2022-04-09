@@ -1,0 +1,19 @@
+<section>
+    <div class="edit-form-container">
+        <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+            <div class="edit-form-title">
+                <h2>User Profile Form</h2>
+            </div>
+            <label>User Photo</label>
+            <input type="file" formControlName="imgUrl" [accept]="acceptedTypes" (change)="uploadImg($event)" />
+            <p *ngIf="!correctImage">Please select an image with the following types: .png; .jpg; .jpeg;</p>
+            <label>Phone</label>
+            <input class="phone-input" type="number" placeholder="Enter your phone number" formControlName="phone" />
+            <p *ngIf="editForm.get('phone')?.invalid && editForm.get('phone')?.touched">Please enter a valid phone number</p>
+            <label>About the Author</label>
+            <textarea type="text" placeholder="Type personal info" formControlName="about"></textarea>
+            <p *ngIf="editForm.get('about')?.invalid && editForm.get('about')?.touched">Information must contains at least 10 characters</p>
+            <button type="submit" [disabled]="!editForm.valid">Sign up</button>
+        </form>
+    </div>
+</section>

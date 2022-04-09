@@ -1,0 +1,57 @@
+form {
+    width: 60%;
+    padding-top: 10px;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    color: white;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+input {
+    height: 40px;
+}
+
+textarea {
+    height: 400px;
+}
+
+
+
+button {
+    width: 70%;
+    height: 40px;
+    background-color: #0c0c0c;
+    color: white;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #e57022;
+}
+button:disabled {
+    background-color: gray;
+}
+
+
+input.ng-invalid:focus {
+    background-color: #e57022;
+}
+
+textarea.ng-invalid:focus {
+    background-color: #e57022;
+}
+
+p {
+    font-size: 12px;
+    margin: 0px 10px;
+}
+

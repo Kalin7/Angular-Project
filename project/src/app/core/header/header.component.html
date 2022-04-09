@@ -1,0 +1,31 @@
+<nav class="navbar">
+    <div class="container">
+        <div class="logo-container">
+            <h1>Welcome to </h1>
+            <div class="logo">
+                <img src="../../../assets/images/logo.png" alt="Logo" />
+            </div>
+        </div>
+        <div class="inner-list">
+            <ul class="inner-list-item">
+                <li><a routerLink="/home">Home</a></li>
+                <li><a routerLink="/about">About</a></li>
+                <li><a routerLink="/feature/blog">Blog</a></li>
+                <li *ngIf="!hasUser"><a routerLink="/auth/login">Login</a></li>
+                <li *ngIf="!hasUser"><a routerLink="/auth/register">Register</a></li>
+                <li *ngIf="hasUser"><a routerLink="/auth/logout">Logout</a></li>
+                <li *ngIf="hasUser"><a routerLink="/feature/song-records">Songs</a></li>
+                <li *ngIf="hasUser"><a routerLink="/feature/user/{{userId}}/profile">My Profile</a></li>
+            </ul>
+        </div>
+        <div class="outer-list">
+            <ul class="outer-list-item">
+                <li><a href="https://facebook.com/"><fa-icon [icon]="['fab', 'facebook-f']"></fa-icon></a></li>
+                <li><a href="https://instagram.com/"><fa-icon [icon]="['fab', 'instagram']"></fa-icon></a></li>
+                <li><a href="https://twitter.com/"><fa-icon [icon]="['fab', 'twitter']"></fa-icon></a></li>
+                <li><a href="https://youtube.com/"><fa-icon [icon]="['fab', 'youtube']"></fa-icon></a></li>
+                <li><a href="https://tiktok.com/"><fa-icon [icon]="['fab', 'tiktok']"></fa-icon></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

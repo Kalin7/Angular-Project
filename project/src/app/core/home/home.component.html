@@ -1,0 +1,35 @@
+
+<app-baner></app-baner>
+<section class="home">
+    <div class="title">
+        <h2>Blog Articles</h2>
+    </div>
+    <div id="/blog" class="article-catalog-container">
+        <div *ngIf="articles.length == 0">
+            <h3>There are no articles yet! Be first, create articles.</h3>
+        </div>
+        <div class="articles-catalog-items" *ngFor="let article of articles">
+            <p>TITLE: {{article.title}}</p>
+            <img src="{{article.imgUrl}}" alt="">
+        </div>
+    </div>
+    <div class="title">
+        <h2>Songs</h2>
+    </div>
+    <div id="/catalog" class="songs-catalog-container">
+        <div *ngIf="articles.length == 0">
+            <h3>There are no song records yet! Be first, create record.</h3>
+        </div>
+        <div class="songs-catalog-items" *ngFor="let record of records">
+            <div>
+                <p>{{record.title}}</p>
+            </div>
+            <div class="fa-container">
+            <fa-icon [icon]="['fas', 'music']"></fa-icon>
+            </div>
+            <div>
+                <p>Author: <span>{{record.author.firstName}} {{record.author.lastName}}</span></p>
+            </div>
+        </div>
+    </div>
+</section>
