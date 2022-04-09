@@ -29,6 +29,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Description:
 Single Page Applcation for sharing an non-professional author's music and articles
 
+## Third parties
+ANGULAR FIREBASE for songs records
+FORM SERVER SIDE for images AWS S3 BUCKET 
+
 ## Authorization:
 Users must register and log in to access all the features of the application
 Non register and not loggedin users have this view of the navigation bar: https://angular-project-image-storage.s3.eu-central-1.amazonaws.com/nav1.png
@@ -39,3 +43,10 @@ Clicking to Login: Login form should load to your screen, All FIELDS ARE REQUIRE
 ## Content and view of project
 
 Home Page - visible for all users, contains limited number of Songs and Articles loaded from Server , page doesent contain any router links for navigation use NAVIGATION BAR 
+View of page is something like this:  
+https://angular-project-image-storage.s3.eu-central-1.amazonaws.com/Screenshot+(6).png
+
+Songs-record page and Blog page is visible for non logeddin and not registerd users
+If user have a wish to create a blog article, a post or upload a song record he must log in
+
+For upload song record articles or post, fill the form All FIELDS ARE REQUIRED
