@@ -30,8 +30,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 Single Page Applcation for sharing an non-professional author's music and articles
 
 ## Third parties
-ANGULAR FIREBASE for songs records
-FORM SERVER SIDE for images AWS S3 BUCKET 
+for songs records ANGULAR FIREBASE 
+for images AWS S3 BUCKET - throught SERVER SIDE
 
 ## Authorization:
 Users must register and log in to access all the features of the application
@@ -50,3 +50,4 @@ Songs-record page and Blog page is visible for non logeddin and not registerd us
 If user have a wish to create a blog article, a post or upload a song record he must log in
 
 For upload song record articles or post, fill the form All FIELDS ARE REQUIRED
+To update or delete some of your songs , articles or post visit My profile page - When you delete an item, it is saved in the database, but can no longer be accessed through the application
