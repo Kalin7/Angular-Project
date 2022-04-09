@@ -9,6 +9,14 @@ Files in server side:
 - utils
 - index.js -
 
-To run server type node index.js into terminal of your computer
+Development
+Prepare your environment
+
+    Install Node.js and NPM 
+    Install local dev dependencies: npm install while current directory is this repo
+
+Development server
+
+Run node index.js ito terminal to start a development server on port 3000 
 
 
