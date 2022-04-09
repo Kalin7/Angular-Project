@@ -5,12 +5,15 @@ import { SongRecordService } from '../../../service/song-record.service';
 import { LocalStorageService } from '../../../service/local-storage.service';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-create-record',
   templateUrl: './create-record.component.html',
   styleUrls: ['./create-record.component.css']
 })
+
 export class CreateRecordComponent implements OnInit {
 
   recordForm = new FormGroup({
@@ -25,13 +28,14 @@ export class CreateRecordComponent implements OnInit {
   fileUrl!: any;
   userId?: string;
   correctType: boolean = true;
+  recordData: {} = {};
   constructor(
     private router: Router,
     private sUser: UserService,
     private sRecord: SongRecordService, 
     private sSession: LocalStorageService,
     private storage: AngularFireStorage
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.userId = this.sSession.getUserId();
@@ -41,18 +45,8 @@ export class CreateRecordComponent implements OnInit {
     this.selectedFile = event.target.files[0]
   }
 
-  getData(url: string) {
-    return {
-      title: this.recordForm.get('title')?.value,
-      genre: this.recordForm.get('genre')?.value,
-      description: this.recordForm.get('description')?.value,
-      songUrl: url,
-      author: this.userId
-    }
-  }
-
   onCreate() {
-    if(!this.recordForm.valid) {
+    if (!this.recordForm.valid) {
       return;
     }
     this.filePath = `${this.selectedFile?.name}_${Math.random() * 11111111 | 0}`;
@@ -60,20 +54,28 @@ export class CreateRecordComponent implements OnInit {
     
     this.storage.upload(this.filePath, this.selectedFile).then(() => {
       fileRef.getDownloadURL().subscribe((url) => {
-        const data = this.getData(url);
-        this.sRecord
-          .createRecord(data)
-          .subscribe((res) => {
-            const addData = {
-              dataType: 'song',
-              id: res._id
+          this.recordData = {
+            title: this.recordForm.get('title')?.value,
+            genre: this.recordForm.get('genre')?.value,
+            description: this.recordForm.get('description')?.value,
+            songUrl: url,
+            author: this.userId
+          }
+        
+          this.sRecord.createRecord(this.recordData).subscribe({
+            next: (res) => {
+              const addData = {
+                dataType: 'song',
+                id: res._id
+              }
+              this.sUser.updateUserData(this.userId!, addData).subscribe();
+            },
+            error: (err) => {
+              alert(err.message)
             }
-            this.sUser.updateUserData(this.userId!, addData).subscribe();
           })
-      })
+          
+        });
     })
-    this.recordForm.reset();
-    this.router.navigate(['/feature/song-records'])
   }
 }
-
