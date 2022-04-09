@@ -19,4 +19,4 @@ Development server
 
 Run node index.js ito terminal to start a development server on port 3000 
 
-
+# Angular-Project CLient Side is found in folder PROJECT 
