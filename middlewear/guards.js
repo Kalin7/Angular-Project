@@ -16,7 +16,10 @@ module.exports = {
         const token = getTokenFromHeader(req);
         const verified = await verifyToken(token);
         if (!verified) {
-            return res.status(401);
+            return res.status(401).json({message: 'Invalid token'});
+        }
+        if (verified == 'jwt expired') {
+            return res.status(401).json({message: 'Token already expired'});
         }
         next();        
     },

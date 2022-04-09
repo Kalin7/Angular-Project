@@ -9,12 +9,17 @@ function generateToken(user) {
     return jwt.sign(
         payload, 
         process.env.JWT_SECRET_KEY, 
-        {expiresIn: 3600 * 24 * 60 * 60}
+        {expiresIn: '7d'}
     );
 }
 
 async function verifyToken(token) {
-    return jwt.verify(token, process.env.JWT_SECRET_KEY);
+    return jwt.verify(token, process.env.JWT_SECRET_KEY, function(err, decoded) {
+        if (err) {
+            return err.message;
+        }
+        return decoded
+    });
 }
 
 module.exports = {
