@@ -41,7 +41,6 @@ module.exports = {
                 return res.status(401).json({message: 'Unautorize'});
             }
         }
-        console.log(elementId)
         next();
     }
 }

@@ -19,11 +19,10 @@ router.post('/user/login', guard.isAlreadyLoggedIn, userControlers.loginAction);
 router.post('/create/record', guard.hasUser, songControlers.create);
 router.post('/create/article', guard.hasUser, uploadS3.single('image'),  articlesControlers.create);
 router.post('/article/:id/update', guard.hasUser, articlesControlers.updateArticle);
-
-router.post('/user/:id', guard.hasUser, userControlers.updateUser);
 router.post('/create/post', guard.hasUser, postsControlers.create);
 
-
+router.put('/user/:id', guard.hasUser, userControlers.updateUserElements);
+router.put('/user/:id/info', uploadS3.single('image'), userControlers.updateUserInfo);
 router.put('/records/:id/:status', songControlers.vote);
 router.put('/user/:userId/:elementType/:elementId/delete', guard.isAuthor, userControlers.deleteElement);
 

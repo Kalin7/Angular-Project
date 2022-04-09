@@ -19,7 +19,7 @@ const updateUserMapper = {
     },
     'post' : async function (userId, postId) {
         return await User.findOneAndUpdate({_id:userId}, {$push: {posts: postId}});
-    }
+    },
 }
 
 async function createUser(data) {
@@ -38,6 +38,15 @@ async function createUser(data) {
 
 async function updateByType(dataType, userId, id) {
     return await updateUserMapper[dataType](userId, id)
+}
+
+async function updateInfo(userId, data) {
+    
+    const user = await User.findOneAndUpdate(
+        {_id: userId},
+        {$set: {imgUrl: data.imgUrl, phone: data.phone, about: data.about}}
+    )
+    return user;
 }
 
 async function getUserById(id) {
@@ -68,6 +77,7 @@ module.exports = {
     createUser,
     isExistUser,
     updateByType,
+    updateInfo,
     getUserById,
     deleteElementByTypeAndId
 };

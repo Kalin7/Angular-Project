@@ -1,7 +1,7 @@
 const { checkFormData, errorHandler } = require('../utils/helpers.js')
 const { createUser, isExistUser, addArticle, 
         updateByType, getUserById, 
-        deleteElementByTypeAndId } = require('../managers/User');
+        deleteElementByTypeAndId, updateInfo } = require('../managers/User');
 const { createSessionStorage } = require('../managers/userSession');
 
 
@@ -38,15 +38,33 @@ module.exports = {
         }
     },
 
-    updateUser: async (req, res) => {
-        console.log(req.body)
+    updateUserElements: async (req, res) => {
+        
         const userId = req.params.id;
         const {dataType, id} = req.body;
-        
+
         try {
             const user = await updateByType(dataType, userId, id)
             return res.status(201).json(user)
         } catch (err) {
+            const error = errorHandler(err);
+            res.status(400).json(error)
+        }
+    },
+
+    updateUserInfo: async (req, res) => {
+        const userId = req.params.id;
+        const data = {
+            imgUrl: req.file.location,
+            phone: req.body.phone,
+            about: req.body.about
+        }
+        
+        try {
+            const updatedUser = await updateInfo(userId, data)
+            console.log(updatedUser)
+            res.status(200).json(updatedUser)
+        }catch (err) {
             const error = errorHandler(err);
             res.status(400).json(error)
         }
