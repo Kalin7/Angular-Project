@@ -49,5 +49,7 @@ https://angular-project-image-storage.s3.eu-central-1.amazonaws.com/Screenshot+(
 Songs-record page and Blog page is visible for non logeddin and not registerd users
 If user have a wish to create a blog article, a post or upload a song record he must log in
 
+Blog page : https://angular-project-image-storage.s3.eu-central-1.amazonaws.com/Screenshot+(8).png
+
 For upload song record articles or post, fill the form All FIELDS ARE REQUIRED
 To update or delete some of your songs , articles or post visit My profile page - When you delete an item, it is saved in the database, but can no longer be accessed through the application
