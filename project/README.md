@@ -25,3 +25,16 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Description:
+Single Page Applcation for sharing an non-professional author's music and articles
+
+## Authorization:
+Users must register and log in to access all the features of the application
+
+## Content and view of project
+
+Non register and not loggedin users have this view of the navigation bar: https://angular-project-image-storage.s3.eu-central-1.amazonaws.com/nav1.png
+
+
+Home Page - visible for all users, contains limited number of Songs and Articles loaded from Server 
