@@ -34,7 +34,8 @@ export class SongRecordService {
 
 
   createRecord(data: any): Observable<any>{
-    return this.http.post<any>(`${environment.baseUrl}record`, data, {
+    console.log(data)
+    return this.http.post<any>(`${environment.baseUrl}create/record`, data, {
       headers: new HttpHeaders({'Autorization': `Bearer ${this.sStorage.getLocalStorage()}`})
     });
   }
@@ -65,3 +66,4 @@ export class SongRecordService {
     });
   }
 }
+
