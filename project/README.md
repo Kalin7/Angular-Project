@@ -31,10 +31,11 @@ Single Page Applcation for sharing an non-professional author's music and articl
 
 ## Authorization:
 Users must register and log in to access all the features of the application
+Non register and not loggedin users have this view of the navigation bar: https://angular-project-image-storage.s3.eu-central-1.amazonaws.com/nav1.png
+Registered or Logged in users have this view of the nav bar: https://angular-project-image-storage.s3.eu-central-1.amazonaws.com/Screenshot+(5).png
+Clicking to Register: Registration form should load to your screen, All FIELDS ARE REQUIRED, if input is invalid submit button is DISABLED
+Clicking to Login: Login form should load to your screen, All FIELDS ARE REQUIRED, if input is invalid submit button is DISABLED
 
 ## Content and view of project
 
-Non register and not loggedin users have this view of the navigation bar: https://angular-project-image-storage.s3.eu-central-1.amazonaws.com/nav1.png
-
-
-Home Page - visible for all users, contains limited number of Songs and Articles loaded from Server 
+Home Page - visible for all users, contains limited number of Songs and Articles loaded from Server , page doesent contain any router links for navigation use NAVIGATION BAR 
