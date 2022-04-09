@@ -1,0 +1,10 @@
+<section class="section">
+    <div class="button-holder">
+        <button (click)="prevPic()">Prev</button>
+        <button (click)="nextPic()">Next</button>
+    </div>
+    <div class="baner-container" *ngIf="pic">
+        <h2>{{pic[id].title}}</h2>
+        <img src="{{pic[id].url}}" alt="Picture">
+    </div>
+</section>

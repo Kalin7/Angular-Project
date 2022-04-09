@@ -1,0 +1,21 @@
+<section class="login-section">
+    <div class="login-form-container">
+        
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+            <div class="login-form-title">
+                <h2>Please Login</h2>
+                <div class="login-form-icon">
+                    <fa-icon [icon]="['fas', 'lock']"></fa-icon>
+                </div>
+            </div>
+            <label>Email</label>
+            <input type="email" placeholder="Enter Email" formControlName="email"/>
+            <p *ngIf="email?.invalid && email?.touched">Please enter a valid email</p>
+            <label>Password</label>
+            <input type="text" placeholder="Enter Password" formControlName="password"/>
+            <p *ngIf="!password?.valid && password?.touched">Please enter a valid password</p>
+            <button type="submit" [disabled]="!loginForm.valid">Sign in</button>
+        </form>
+    </div>
+</section>
+

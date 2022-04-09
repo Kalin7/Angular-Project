@@ -1,0 +1,98 @@
+section {
+    width: 80%;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #180b0a, #e57022);
+    color: white;
+    opacity: 0.95;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 10px 10px;
+}
+
+h3 {
+    background-color: #e57022;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+}
+a {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    width: 300px;
+    background-color: #0073bb;
+    border: 2px solid lightgrey;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.profile-info-list {
+    list-style:  none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.profile-info-list li {
+    flex: 0 0 200px;
+    border: 1px solid #180b0a;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+span {
+    width: 100%;
+    display: inline-block;
+    margin: 0 auto;
+    background-color: #0073bb;
+    text-align: center;
+}
+
+.user-name {
+    text-align: center;
+}
+
+.edit-btn {
+    margin-left: 60px;
+}
+
+.song-container,
+.article-container,
+.posts-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: scroll;
+    scrollbar-width: thin;
+    padding: 10px 10px;
+}
+
+.song-card,
+.post-card,
+.article-card {
+    flex: 0 0 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #180b0a;
+    padding: 10px 10px;
+}
+
+.post-card-content {
+    width: 300px;
+    height: 100px;
+    word-wrap: break-word;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+}
+
+.active {
+    display: none;
+}

@@ -1,0 +1,49 @@
+.create-section {
+    width: 80%;
+    margin: 0 auto;
+    background-image: linear-gradient(to right, #180b0a, #e57022);
+    opacity: 0.95;
+    border-radius: 5px;
+}
+
+form {
+    width: 60%;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px auto;
+}
+
+div {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+input { 
+    height: 40px;
+}
+textarea {
+    height: 400px;
+}
+
+button {
+   width: 70%;
+   height: 40px;
+   background-color: #0c0c0c;
+   color: white;
+   border-radius: 5px;
+}
+
+button:hover {
+    background-color: #e57022;
+}
+
+button:disabled {
+    background-color: gray;
+}
+p {
+    font-size: 12px;
+    margin: 0px 10px;
+}

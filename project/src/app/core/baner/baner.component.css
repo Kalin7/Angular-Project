@@ -1,0 +1,45 @@
+.section {
+    width: 800px;
+    margin: 0 auto;
+    border-image: linear-gradient(to right,#180b0a, #e57022) 2 10%;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 5px;
+}
+
+.button-holder {
+    width: 100%;
+    height: 370px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.button-holder button {
+    background-color: #e57022;
+    color: white;
+    height: 35px;
+    border-radius: 5px;
+}
+.baner-container {
+    width: 700px;
+    margin: 0px auto;
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.baner-container h2 {
+    color: white;
+    text-align: center;
+    font-size: large;
+   
+}
+
+.baner-container img {
+    width: 700px;
+    height: 275px;
+    flex: 0 0 100%; 
+    border-radius: 5px;
+    padding-bottom: 20px;
+}

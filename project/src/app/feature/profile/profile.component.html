@@ -1,0 +1,74 @@
+<section *ngIf="user" routerLinkActive="active">
+    <div>
+        <h3>Profile Info</h3>
+        <ul class="profile-info-list">
+            <li class="user-name" *ngIf="user.imgUrl">
+                <span>Image:</span>
+                <img src="{{user.imgUrl}}" alt="">
+            </li>
+            <li>
+                <span>Name: </span>
+                <p class="user-name">{{user.firstName}} {{user.lastName}}</p>
+            </li>
+            <li class="user-name">
+                <span>Email: </span>
+                <p>{{user.email}}</p>
+            </li>
+            <li class="user-name" *ngIf="user.phone">
+                <span>Phone: </span>
+                <p>{{user.phone}}</p>
+            </li>
+            <li *ngIf="user.about">
+                <span>About: </span>
+                <p>{{user.about}}</p>
+            </li>
+        </ul>
+        <div class="edit-btn">
+            <a routerLink="./edit">Extend Profile Info</a>
+        </div>
+    </div>
+
+    <div>
+        <h3>Songs</h3>
+        
+        <div *ngIf="user.songs.length == 0">
+            <h3>There are no song-records yet!</h3>
+        </div>
+        
+        <div class = "song-container">
+            <div class="song-card" *ngFor="let song of user.songs">
+                <p class="song-card-content">Song Name: {{song.title}}</p>
+                <audio class="audio" controls autoplay>
+                    <source src="{{song.url}}" type="audio/mpeg"/>
+                </audio>
+                <a routerLink="./{{elements![1]}}/{{song._id}}/{{song.author}}/delete">Delete</a>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h3>Articles</h3>
+        <div *ngIf="user.articles.length == 0">
+            <h3>There are no articles yet!</h3>
+        </div>
+        <div class = "article-container">
+            <div class="article-card" *ngFor="let article of user.articles">
+                <p class="article-card-content">Article title: {{article.title}}</p>
+                <a routerLink="./{{elements![0]}}/{{article._id}}/{{article.author}}/delete">Delete</a>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h3>Posts</h3>
+        <div *ngIf="user.posts.length == 0">
+            <h3>There are no posts yet!</h3>
+        </div>
+        <div class="posts-container">
+            <div class="post-card" *ngFor="let post of user.posts">
+                <p class="post-card-content">{{post.content}}</p>
+                <a routerLink="./{{elements![2]}}/{{post._id}}/{{post.author}}/delete">Delete</a>
+            </div>
+        </div>
+        
+    </div>
+</section>
+<router-outlet></router-outlet>

@@ -1,0 +1,29 @@
+<form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label>Title:</label>
+        <input type="text" formControlName="title" placeholder="Enter title" />
+        <p 
+            *ngIf="articleForm.get('title')?.invalid
+             && 
+             articleForm.get('title')?.touched">
+             Field is required. Minimum length 4 characters.
+        </p>
+    </div>
+    <div>
+        <label>Select Image:</label>
+        <input type="file" formControlName="image" [accept]="acceptedTypes" (change)="uploadImg($event)" />
+        <p *ngIf="!correctImage">Please select an image with the following types: .png; .jpg; .jpeg;</p>
+    </div>
+    <div>
+        <label>Content:</label> 
+        <textarea type="text" formControlName="content"></textarea>
+        <p 
+            *ngIf="articleForm.get('content')?.invalid
+             && 
+             articleForm.get('content')?.touched">
+             Field is required. Minimum length 10 characters.
+        </p>
+    </div>
+    <button type="submit" [disabled]="!articleForm.valid">Submit</button>
+</form>
+
