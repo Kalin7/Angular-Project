@@ -54,3 +54,4 @@ Song detail page: https://angular-project-image-storage.s3.eu-central-1.amazonaw
 
 For upload song record articles or post, fill the form All FIELDS ARE REQUIRED
 To update or delete some of your songs , articles or post visit My profile page - When you delete an item, it is saved in the database, but can no longer be accessed through the application
+My profile page: https://angular-project-image-storage.s3.eu-central-1.amazonaws.com/Screenshot+(11).png
