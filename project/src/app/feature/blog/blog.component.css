@@ -39,8 +39,9 @@
     display: flex;
 }
 
-.container.active {
-    display: none;
+.container {
+    overflow-y: scroll;
+    scrollbar-width: thin;
 }
 
 h4 {
