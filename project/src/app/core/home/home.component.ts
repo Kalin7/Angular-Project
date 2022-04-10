@@ -32,11 +32,11 @@ export class HomeComponent implements OnInit {
         .getHomePageArticles()
         .subscribe({
             next: (res) => {
-              console.log(res)
+              
               this.articles = res;
             },
             error: (err) => {
-              alert(err);
+              alert(err.message);
             }
         })
   }
