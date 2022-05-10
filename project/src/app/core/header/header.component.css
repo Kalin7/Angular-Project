@@ -66,19 +66,35 @@ a:hover {
     display: inline-block;
 }
 
-.outer-list {
+.search-container {
     flex: 0 0 30%;
-}
-
-.outer-list-item {
-    list-style: none;
     display: flex;
-    align-items: center;
+    align-items:center;
     justify-content: flex-end;
-    gap: 20px;
-    margin-right: 40px;
 }
 
-.outer-list-item a {
+.search-container input {
+    width: 50%;
+    height: 38px;
+    border-top: 1px solid #e57022;
+    border-bottom: 1px solid #e57022;
+    border-left: 1px solid #e57022;
+    border-radius: 5px 0px 0px 5px;
+    overflow: hidden;
+}
+
+.search-container a {
+    height: 40px;
+    text-decoration: none;
+    background-color: #0073bb;
     color: white;
+    border-top: 1px solid #e57022;
+    border-bottom: 1px solid #e57022;
+    border-right: 1px solid #e57022;
+    border-radius: 0px 5px 5px 0px;
+}
+
+.search-container span {
+    margin: 10px auto;
+    display: inline-block;
 }
