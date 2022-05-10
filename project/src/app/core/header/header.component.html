@@ -18,14 +18,9 @@
                 <li *ngIf="hasUser"><a routerLink="/feature/user/{{userId}}/profile">My Profile</a></li>
             </ul>
         </div>
-        <div class="outer-list">
-            <ul class="outer-list-item">
-                <li><a href="https://facebook.com/"><fa-icon [icon]="['fab', 'facebook-f']"></fa-icon></a></li>
-                <li><a href="https://instagram.com/"><fa-icon [icon]="['fab', 'instagram']"></fa-icon></a></li>
-                <li><a href="https://twitter.com/"><fa-icon [icon]="['fab', 'twitter']"></fa-icon></a></li>
-                <li><a href="https://youtube.com/"><fa-icon [icon]="['fab', 'youtube']"></fa-icon></a></li>
-                <li><a href="https://tiktok.com/"><fa-icon [icon]="['fab', 'tiktok']"></fa-icon></a></li>
-            </ul>
+        <div class="search-container">
+            <input type="text" placeholder="Search by coincidence">
+            <a routerLink=""><span>Search</span></a>
         </div>
     </div>
 </nav>
